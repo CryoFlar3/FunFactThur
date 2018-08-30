@@ -8,6 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class FunFactsActivity extends AppCompatActivity {
+    private FactBook factBook = new FactBook();
+    private ColorWheel colorWheel = new ColorWheel();
 
     private TextView factTextView;
     private Button showFactButton;
@@ -26,6 +28,11 @@ public class FunFactsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                int color = colorWheel.getColor();
+
+                factTextView.setText(factBook.getFact());
+                relativeLayout.setBackgroundColor(color);
+                showFactButton.setTextColor(color);
             }
         });
     }
